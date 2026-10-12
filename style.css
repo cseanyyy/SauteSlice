@@ -1,0 +1,379 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Binago ang dark background tungo sa mainit at magaan na cream/beige tonong babagay sa title */
+body {
+    background-color: #f7f1e5;
+    color: #4a3b32;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Startup Screen Overlay Container */
+#menu-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #f7f1e5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.startup-card {
+    position: relative;
+    width: 1300px;
+    height: 780px;
+    background-image: url('Startup.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 16px;
+    border: 2px solid #d4c5b9;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding-bottom: 50px;
+}
+
+/* Posisyon ng "By: CsenZei Prod." sa ibaba mismo ng SAUTÉ SLICE title sa imahe */
+.startup-subtitle-overlay {
+    position: absolute;
+    top: 54%; /* Nakapuwesto sa pagitan ng SLICE at ng instruction text */
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #b55233; /* Komplementaryong kulay sa orange/red ng title */
+    letter-spacing: 1.5px;
+}
+
+/* Malaking START Button sa Menu */
+.big-start-btn {
+    background-color: #e06d4e;
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: bold;
+    padding: 16px 70px;
+    border: 3px solid #2d231e;
+    border-radius: 40px;
+    cursor: pointer;
+    box-shadow: 0 6px 0px #2d231e;
+    transition: transform 0.1s, box-shadow 0.1s, background-color 0.2s;
+    letter-spacing: 1px;
+}
+
+.big-start-btn:hover {
+    background-color: #f48263;
+    transform: translateY(-3px);
+    box-shadow: 0 9px 0px #2d231e;
+}
+
+.big-start-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 3px 0px #2d231e;
+}
+
+/* Setup Screen Card (Warm Cream & Terracotta theme) */
+.setup-card {
+    background: #fdfbf7;
+    border: 2px solid #d4c5b9;
+    padding: 40px 60px;
+    border-radius: 16px;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.setup-card h2 {
+    color: #d97757;
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+}
+
+.setup-card p {
+    color: #7a6859;
+    margin-bottom: 30px;
+}
+
+/* Menu Selectors */
+.menu-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 30px;
+    background: #f4ecdf;
+    padding: 20px 30px;
+    border-radius: 12px;
+    border: 1px solid #d4c5b9;
+    width: 100%;
+}
+
+.control-group label {
+    display: block;
+    font-size: 0.8rem;
+    color: #b55233;
+    font-weight: bold;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.btn-options {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.opt-btn {
+    background: #e8dcc8;
+    border: 1px solid #c9b8a3;
+    color: #5c4a3d;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.opt-btn.active {
+    background: #e06d4e;
+    color: white;
+    border-color: #b55233;
+}
+
+/* Main Game Container */
+.game-container {
+    position: relative;
+    width: 1300px;
+    height: 780px;
+    background-image: url('MainGameBG.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 2px solid #d4c5b9;
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 40px;
+}
+
+canvas {
+    display: block;
+    cursor: crosshair;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    position: absolute;
+    top: 75px;
+    left: 60px;
+    width: 1180px;
+    height: 620px;
+    z-index: 2;
+}
+
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(247, 241, 229, 0.95);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 10;
+    padding: 20px;
+}
+
+.screen h2 {
+    font-size: 2.5rem;
+    color: #d97757;
+    margin-bottom: 15px;
+}
+
+.screen p {
+    font-size: 1.1rem;
+    color: #7a6859;
+    margin-bottom: 20px;
+}
+
+/* Score History List */
+.score-history-container {
+    background: #f4ecdf;
+    border: 1px solid #d4c5b9;
+    padding: 15px 25px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    max-height: 160px;
+    overflow-y: auto;
+    width: 320px;
+}
+
+.score-history-container h3 {
+    font-size: 0.9rem;
+    color: #b55233;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+#score-history-list {
+    list-style: none;
+    font-size: 0.85rem;
+    color: #5c4a3d;
+}
+
+#score-history-list li {
+    padding: 4px 0;
+    border-bottom: 1px dashed rgba(92, 74, 61, 0.2);
+}
+
+.btn {
+    background-color: #e06d4e;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 12px 35px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    box-shadow: 0 4px 10px rgba(224, 109, 78, 0.3);
+}
+
+.btn:hover {
+    background-color: #f48263;
+    transform: scale(1.05);
+}
+
+/* Custom Top & Bottom HUD */
+#hud {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    z-index: 5;
+}
+
+.hud-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.game-title-small {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #e59866;
+    letter-spacing: 1px;
+}
+
+.game-subtitle {
+    font-size: 0.65rem;
+    color: #f39c12;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+.hud-center-score {
+    background: rgba(45, 35, 30, 0.85);
+    border: 2px solid #5c4a3d;
+    padding: 6px 25px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.score-label {
+    font-size: 0.65rem;
+    color: #bfa18f;
+    letter-spacing: 1px;
+}
+
+.score-value {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #f4a261;
+}
+
+.hud-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    pointer-events: auto;
+}
+
+.time-box {
+    background: rgba(45, 35, 30, 0.85);
+    border: 2px solid #5c4a3d;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.pause-btn {
+    background: #e06d4e;
+    border: none;
+    color: white;
+    width: 35px;
+    height: 35px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: auto;
+}
+
+.hud-bottom {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    font-size: 0.8rem;
+    color: #bfa18f;
+    z-index: 5;
+}
+
+.heat-bar-container {
+    width: 350px;
+    height: 8px;
+    background: rgba(45, 35, 30, 0.85);
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid #5c4a3d;
+}
+
+.heat-bar-fill {
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, #f4a261, #e06d4e);
+    border-radius: 4px;
+}
+
+.hidden {
+    display: none !important;
+}

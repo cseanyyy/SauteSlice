@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sauté Slice - CsenZei Prod.</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Main Menu Screen (Startup Image without main subtitle overlay) -->
+    <div id="menu-screen" class="screen">
+        <div class="startup-card">
+            <button id="initial-start-btn" class="big-start-btn">START</button>
+        </div>
+    </div>
+
+    <!-- Mode & Difficulty Selection Screen -->
+    <div id="setup-screen" class="screen hidden">
+        <div class="setup-card">
+            <h2>KITCHEN PREP SETUP</h2>
+            <p>Choose your cooking conditions before jumping in!</p>
+            
+            <div class="menu-controls">
+                <div class="control-group">
+                    <label>DIFFICULTY (CHILI FREQUENCY)</label>
+                    <div class="btn-options" id="difficulty-select">
+                        <button class="opt-btn active" data-val="easy">Easy (Few Chilis)</button>
+                        <button class="opt-btn" data-val="medium">Medium</button>
+                        <button class="opt-btn" data-val="hard">Hard (Extra Chilis)</button>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label>GAME MODE</label>
+                    <div class="btn-options" id="mode-select">
+                        <button class="opt-btn active" data-val="timed">Timed (1 Min)</button>
+                        <button class="opt-btn" data-val="endless">No Time (Endless)</button>
+                    </div>
+                </div>
+            </div>
+
+            <button id="begin-game-btn" class="btn">BEGIN GAME →</button>
+        </div>
+    </div>
+
+    <!-- Pause Overlay Screen -->
+    <div id="pause-screen" class="screen hidden">
+        <h2>Game Paused</h2>
+        <button id="resume-btn" class="btn">RESUME GAME</button>
+    </div>
+
+    <div class="game-container">
+        <!-- Game HUD (Top bar with "By: CsenZei Prod.") -->
+        <div id="hud" class="hidden">
+            <div class="hud-left">
+                <span class="game-title-small">SAUTÉ SLICE</span>
+                <span class="game-subtitle">By: CsenZei Prod.</span>
+            </div>
+            <div class="hud-center-score">
+                <div class="score-label">SCORE</div>
+                <div class="score-value" id="score-val">0</div>
+            </div>
+            <div class="hud-right">
+                <div class="time-box">TIME <span id="timer-val">1:00</span></div>
+                <button id="pause-btn" class="pause-btn">❚❚</button>
+            </div>
+        </div>
+
+        <!-- HTML5 Canvas -->
+        <canvas id="gameCanvas" width="1180" height="620"></canvas>
+
+        <!-- Game HUD (Bottom bar) -->
+        <div id="hud-bottom-bar" class="hidden hud-bottom">
+            <span>COMBO HEAT</span>
+            <div class="heat-bar-container">
+                <div class="heat-bar-fill"></div>
+            </div>
+            <span style="color: #d97757; font-weight: bold;">SIZZLING</span>
+        </div>
+
+        <!-- Game Over / Results Screen -->
+        <div id="game-over-screen" class="screen hidden">
+            <h2 id="game-over-title">Prep Time Over!</h2>
+            <p>Your Final Score: <span id="final-score">0</span></p>
+            <p id="game-over-reason"></p>
+            
+            <div class="score-history-container">
+                <h3>Recent Score History</h3>
+                <ul id="score-history-list">
+                    <!-- Populated dynamically -->
+                </ul>
+            </div>
+
+            <button id="restart-btn" class="btn">PLAY AGAIN</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
